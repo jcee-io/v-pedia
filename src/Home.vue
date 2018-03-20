@@ -8,7 +8,6 @@
         <router-link v-bind:to="random" class="btn btn-outline-light btn-lg">I'm feeling Random</router-link>   
       </div>
     </div>
-    <h2>{{ query }}</h2>
   </div>
 </template>
 

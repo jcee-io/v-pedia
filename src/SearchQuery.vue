@@ -4,7 +4,7 @@
     <div v-for="article in articles">
       <div class="article-box container">
         <h2>{{ article.title }}</h2>
-        <h3><span v-html="article.snippet">{{ article.snippet }}</span></h3>
+        <h3><span v-html="article.snippet">{{ article.snippet }}</span>...</h3>
       </div>
     </div>
   </div>
