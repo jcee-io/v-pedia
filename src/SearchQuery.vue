@@ -1,9 +1,15 @@
 <template>
   <div>
-    <h1>{{ query }}</h1>
-    <div v-for="article in articles">
+    <h1>v-pedia</h1>
+    <div id="mini-search-box" class="container">
+      <input class="form-control" v-model="input">
+      <router-link v-bind:to="`/search/${input}`" class="btn btn-outline-light btn-lg">Search</router-link>
+      <a target="_blank" v-bind:href="random" class="btn btn-outline-light btn-lg">Random</a> 
+    </div>
+    <h1 id="loading" v-if="loading">Loading Articles...</h1>
+    <div v-if="!loading" v-for="article in articles">
       <div class="article-box container">
-        <h2>{{ article.title }}</h2>
+        <h2><a target="_blank" v-bind:href="`http://en.wikipedia.org/wiki/${article.title}`">{{ article.title }}</a></h2>
         <h3><span v-html="article.snippet">{{ article.snippet }}</span>...</h3>
       </div>
     </div>
@@ -14,10 +20,13 @@
 export default {
   data () {
     return {
+     input: '',
      query: this.$route.params.query,
      cors: 'https://cors-anywhere.herokuapp.com/',
      url: 'https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=',
-     articles: []
+     loading: true,
+     articles: [],
+     random: 'https://en.wikipedia.org/wiki/Special:Random'
     }
   },
   created() {
@@ -25,6 +34,7 @@ export default {
       .then(function(data) {
         console.log(data.body.query.search);
         this.articles = data.body.query.search;
+        this.loading = false;
       })
       .catch(function(err) {
         console.log(err);
@@ -34,6 +44,15 @@ export default {
 </script>
 
 <style scoped>
+#mini-search-box {
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+}
+#loading {
+  font-size: 5em;
+  margin-top: 45vh;
+}
 .article-box {
   margin: 20px auto;
   background: whitesmoke;
