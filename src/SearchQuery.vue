@@ -2,8 +2,10 @@
   <div>
     <h1>{{ query }}</h1>
     <div v-for="article in articles">
-      <h2>Title:  {{ article.title }}</h2>
-      <p>Description: {{ article.snippet }}</p>
+      <div class="article-box container">
+        <h2>{{ article.title }}</h2>
+        <h3><span v-html="article.snippet">{{ article.snippet }}</span></h3>
+      </div>
     </div>
   </div>
 </template>
@@ -32,5 +34,16 @@ export default {
 </script>
 
 <style scoped>
+.article-box {
+  margin: 20px auto;
+  background: whitesmoke;
+  color: black;
+  height: 300px;
+  border-radius: 10px;
+  padding: 30px;
+}
 
+.article-box h3 {
+  margin-top: 2%;
+};
 </style>
