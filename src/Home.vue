@@ -13,7 +13,6 @@
 </template>
 
 <script>
-const url = 'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=';
 export default {
   data () {
     return {
