@@ -4,8 +4,8 @@
     <div class="container">
       <input id="search-bar" class="form-control" v-model="query">
       <div id="search-buttons">
-        <button class="btn btn-outline-light btn-lg">Wikipedia Search</button>
-        <button class="btn btn-outline-light btn-lg">I'm feeling Random</button>   
+        <router-link v-bind:to="`/search/${query}`" class="btn btn-outline-light btn-lg">Wikipedia Search</router-link>
+        <router-link v-bind:to="random" class="btn btn-outline-light btn-lg">I'm feeling Random</router-link>   
       </div>
     </div>
     <h2>{{ query }}</h2>
@@ -15,10 +15,10 @@
 <script>
 const url = 'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=';
 export default {
-  name: 'app',
   data () {
     return {
-      query: ''
+      query: '',
+      random: 'https://en.wikipedia.org/wiki/Special:Random'
     }
   }
 }
