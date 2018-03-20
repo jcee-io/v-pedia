@@ -3,11 +3,15 @@
     <div id="search-box" class="container">
       <h1>v-pedia</h1>
       <p>The minimalist Wiki API application that's easy on the eyes</p>
-      <input id="search-bar" class="form-control" v-model="query">
-      <div id="search-buttons">
-        <router-link v-bind:to="`/search/${query}`" class="btn btn-outline-light btn-lg">Wikipedia Search</router-link>
-        <a target="_blank" v-bind:href="random" class="btn btn-outline-light btn-lg">I'm feeling Random</a>   
-      </div>
+
+      <form v-bind:action="`/search/${query}`">
+        <input id="search-bar" class="form-control" v-model="query">
+        <div id="search-buttons">
+          <button class="btn btn-outline-light btn-lg">Wikipedia Search</button>
+          <a target="_blank" v-bind:href="random" class="btn btn-outline-light btn-lg">I'm feeling Random</a>           
+        </div>
+      </form>
+
     </div>
   </div>
 </template>
@@ -34,16 +38,19 @@ export default {
 
   #search-box p {
     font-size: 2em;
-    margin-bottom: 5vh;
+    margin-bottom: 3vh;
   }
 
   #search-buttons {
-    margin-top: 10px;
     display: flex;
     justify-content: space-around;
   }
 
   #search-buttons button {
-    width: 30%;
+    width: 100%;
+  }
+
+  #search-buttons a {
+    width: 100%;
   }
 </style>
