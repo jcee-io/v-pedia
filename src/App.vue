@@ -13,5 +13,9 @@ export default {
 </script>
 
 <style>
-
+  body {
+    background: black;
+    color: whitesmoke;
+    text-align: center;
+  }
 </style>
