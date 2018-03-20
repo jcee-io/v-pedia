@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>v-pedia</h1>
+    <router-link v-bind:to="'/'" class="header">v-pedia</router-link>
     <div id="mini-search-box" class="container">
       <form class="form-group" v-bind:action="`/search/${input}`">
         <input class="form-control" v-model="input">
@@ -46,6 +46,11 @@ export default {
 </script>
 
 <style scoped>
+.header {
+  font-size: 3.5em;
+  text-decoration: none;
+  color: inherit;
+}
 #mini-search-box {
   padding: 0;
 }
@@ -57,7 +62,7 @@ export default {
 
 #loading {
   font-size: 5em;
-  margin-top: 45vh;
+  margin-top: 32vh;
 }
 .article-box {
   margin: 20px auto;
