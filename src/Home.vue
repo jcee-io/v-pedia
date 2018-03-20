@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <h1>Wikipedia Article Selector</h1>
-    <div class="container">
+    <div id="search-box" class="container">
+      <h1>v-pedia</h1>
+      <p>The minimalist Wiki API application that's easy on the eyes</p>
       <input id="search-bar" class="form-control" v-model="query">
       <div id="search-buttons">
         <router-link v-bind:to="`/search/${query}`" class="btn btn-outline-light btn-lg">Wikipedia Search</router-link>
@@ -23,9 +24,19 @@ export default {
 </script>
 
 <style scoped>
-  #search-bar {
-    margin-top: 35vh;
+  #search-box {
+    margin-top: 25vh;
   }
+
+  #search-box h1 {
+    font-size: 7em;
+  }
+
+  #search-box p {
+    font-size: 2em;
+    margin-bottom: 5vh;
+  }
+
   #search-buttons {
     margin-top: 10px;
     display: flex;
