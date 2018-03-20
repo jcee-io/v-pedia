@@ -5,7 +5,7 @@
       <input id="search-bar" class="form-control" v-model="query">
       <div id="search-buttons">
         <router-link v-bind:to="`/search/${query}`" class="btn btn-outline-light btn-lg">Wikipedia Search</router-link>
-        <router-link v-bind:to="random" class="btn btn-outline-light btn-lg">I'm feeling Random</router-link>   
+        <a target="_blank" v-bind:href="random" class="btn btn-outline-light btn-lg">I'm feeling Random</a>   
       </div>
     </div>
   </div>
