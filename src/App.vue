@@ -19,5 +19,6 @@ export default {
     background: black;
     color: whitesmoke;
     text-align: center;
+    padding: 30px;
   }
 </style>
