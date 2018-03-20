@@ -2,9 +2,11 @@
   <div>
     <h1>v-pedia</h1>
     <div id="mini-search-box" class="container">
-      <input class="form-control" v-model="input">
-      <router-link v-bind:to="`/search/${input}`" class="btn btn-outline-light btn-lg">Search</router-link>
-      <a target="_blank" v-bind:href="random" class="btn btn-outline-light btn-lg">Random</a> 
+      <form class="form-group" v-bind:action="`/search/${input}`">
+        <input class="form-control" v-model="input">
+        <button class="btn btn-outline-light btn-lg">Search</button>
+        <a target="_blank" v-bind:href="random" class="btn btn-outline-light btn-lg">Random</a> 
+      </form>
     </div>
     <h1 id="loading" v-if="loading">Loading Articles...</h1>
     <div v-if="!loading" v-for="article in articles">
@@ -14,7 +16,7 @@
       </div>
     </div>
   </div>
-</template>
+</template> 
 
 <script>
 export default {
@@ -45,10 +47,14 @@ export default {
 
 <style scoped>
 #mini-search-box {
-  display: flex;
-  align-items: stretch;
   padding: 0;
 }
+
+#mini-search-box form{
+  display: flex;
+  padding: 0;
+}
+
 #loading {
   font-size: 5em;
   margin-top: 45vh;
