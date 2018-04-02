@@ -1,6 +1,7 @@
-# wikipedia-viewer
+# v-pedia
+LIVE LINK: https://v-pedia.herokuapp.com/
 
-> A Vue.js project
+> A wikipedia search engine created with Vue.js with routing enabled
 
 ## Build Setup
 
